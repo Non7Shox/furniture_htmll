@@ -1,3 +1,4 @@
+from django.shortcuts import redirect
 from django.views.generic import ListView, DetailView
 from products.models import ProductsModel, ProductsCategoryModel, ProductTagModel
 
@@ -29,3 +30,15 @@ class ProductsDetailView(DetailView):
         context["famous_blogs"] = ProductsModel.objects.all().order_by('created_at')[:2]
         context["related_blogs"] = ProductsModel.objects.filter(categories__in=self.object.categories.all())[:3]
         return context
+
+
+def add_or_remove(request, pk):
+    cart = request.session.get('cart', [])
+    if pk in cart:
+        cart.remove(pk)
+    else:
+        cart.append(pk)
+
+    request.session['cart'] = cart
+    print(request.session.get('cart', []))
+    return redirect('products:list')

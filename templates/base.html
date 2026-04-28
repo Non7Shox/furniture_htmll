@@ -50,18 +50,22 @@
         id="blog-detail" class="blog"
         {% elif 'products/detail' in request.path %}
         id="blog-detail" class="blog"
-        {% elif 'users/account' in request.path %}
+        {% elif '/users/account/' == request.path %}
         class="user-acount"
         {% elif 'users/cart' in request.path %}
         class="product-cart checkout-cart blog"
-        {% elif 'users/login' in request.path %}
+        {% elif '/users/login/' in request.path %}
         class="user-login blog"
-        {% elif 'users/register' in request.path %}
+        {% elif '/users/register/' in request.path %}
         class="user-register blog"
-        {% elif 'users/reset-password' in request.path %}
+        {% elif '/users/verify/email/' %}
+        class="user-register blog"
+        {% elif '/users/reset-password/' in request.path %}
         class="user-reset-password blog"
-        {% elif 'users/wishlist' in request.path %}
+        {% elif '/users/wishlist/' in request.path %}
         class="user-wishlist blog"
+        {% elif '/users/checkout/' in request.path %}
+        class="product-checkout checkout-cart"
         {% endif %}
 >
     {% include 'layouts/header-base.html' %}

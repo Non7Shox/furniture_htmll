@@ -13,7 +13,7 @@
 
                 <!-- logo -->
                 <div class="mobile-logo">
-                    <a href="index-2.html">
+                    <a href="{% url 'pages:home' %}">
                         <img class="logo-mobile img-fluid" src="{% static 'img/home/logo-mobie.png' %}" alt="Prestashop_Furnitica">
                     </a>
                 </div>
@@ -95,7 +95,7 @@
                     <!-- logo -->
                     <div class="col-sm-2 col-md-2 d-flex align-items-center">
                         <div id="logo">
-                            <a href="index-2.html">
+                            <a href="{% url 'pages:home' %}">
                                 <img src="{% static 'img/home/logo.png' %}" alt="logo" class="img-fluid">
                             </a>
                         </div>
@@ -153,10 +153,17 @@
                                         </a>
                                     </div>
                                     <div>
-                                        <a class="login" href="{% url 'users:login' %}" rel="nofollow" title="Log in to your customer account">
+                                        {% if request.user.is_authenticated %}
+                                        <a class="login" href="{% url 'users:logout' %}" rel="nofollow" title="Log in to your customer account">
+                                            <i class="fa fa-sign-in"></i>
+                                            <span>Sign Out</span>
+                                        </a>
+                                        {% else %}
+                                            <a class="login" href="{% url 'users:login' %}" rel="nofollow" title="Log in to your customer account">
                                             <i class="fa fa-sign-in"></i>
                                             <span>Sign in</span>
                                         </a>
+                                        {% endif %}
                                     </div>
                                     <div>
                                         <a class="register" href="{% url 'users:register' %}" rel="nofollow" title="Register Account">

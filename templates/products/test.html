@@ -1,0 +1,74 @@
+<div class="item text-center col-md-4">
+                                                    <div class="product-miniature js-product-miniature item-one first-item">
+                                                        <div class="thumbnail-container border">
+                                                            <a href="{% url 'products:detail' pk=product.pk %}">
+                                                                <img class="img-fluid image-cover" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                                                <img class="img-fluid image-secondary" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                                            </a>
+                                                        </div>
+                                                        <div class="product-description">
+                                                            <div class="product-groups">
+                                                                <div class="product-title">
+                                                                    <a href="{% url 'products:detail' pk=product.pk %}">{{ product.name }}</a>
+                                                                </div>
+                                                                <div class="product-group-price">
+                                                                    <div class="product-price-and-shipping">
+                                                                        <span class="price">{{ product.price }}$</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="description">
+                                                                    {{ product.description }}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+<div class="item col-md-12">
+                                                    <div class="product-miniature item-one first-item">
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <div class="thumbnail-container border">
+                                                                    <a href="{% url 'products:detail' pk=product.pk %}">
+                                                                        <img class="img-fluid image-cover" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                                                        <img class="img-fluid image-secondary" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                                                    </a>
+                                                                </div>
+                                                            <div class="col-md-8">
+                                                                <div class="product-description">
+                                                                    <div class="product-groups">
+                                                                        <div class="product-title">
+                                                                            <a href="{% url 'products:detail' pk=product.pk %}">{{ product.name }}</a>
+                                                                        </div>
+                                                                        <div class="product-group-price">
+                                                                            <div class="product-price-and-shipping">
+                                                                                <span class="price">{{ product.price }}$</span>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="description">
+                                                                            {{ product.description }}
+                                                                            <div class="product-buttons d-flex">
+                                                                            <form action="#" method="post"
+                                                                                  class="formAddToCart">
+                                                                                <input type="hidden" name="id_product"
+                                                                                        value="1">
+                                                                                <a class="add-to-cart" href="{% url 'products:detail' pk=product.id %}"
+                                                                                   data-button-action="add-to-cart">
+                                                                                    <i class="fa fa-shopping-cart"
+                                                                                       aria-hidden="true"></i>Add to cart
+                                                                                </a>
+                                                                            </form>
+                                                                            <a class="addToWishlist" href="#" data-rel="1" onclick="">
+                                                                                <i class="fa fa-heart" aria-hidden="true"></i>
+                                                                            </a>
+                                                                            <a href="#" class="quick-view hidden-sm-down" data-link-action="quickview">
+                                                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                                                            </a>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
